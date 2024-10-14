@@ -133,3 +133,8 @@ static/rest_framework
 thrash
 wslvenv
 data/
+
+
+# Custom
+package
+aws_lambda/deployment_package.zip
