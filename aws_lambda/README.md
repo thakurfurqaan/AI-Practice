@@ -16,3 +16,7 @@ Run the following:
 
 
 - Then upload the zip file to AWS Lambda.
+
+- Link it to an API Gateway endpoint.
+- Pass the params in URL string or in the body of the request.
+- Then call the API Gateway endpoint from a browser or any HTTP client.
