@@ -54,24 +54,31 @@ class TestCase:
     output: int = 0
 
 
-def test_coin_change():
-    s = Solution1()
+s = Solution1()
 
-    test_cases = [
-        TestCase([1, 2, 5], 11, 3),
+
+def run_test(tc: TestCase):
+    res = s.coinChange(tc.coins, tc.amount)
+    assert res == tc.output, f"Expected {tc.output}, got {res}"
+
+
+def test_coin_less_than_amount():
+    run_test(TestCase([1, 2, 5], 11, 3))
+
+
+def test_greedy():
+    run_test(TestCase([1, 2, 5], 11, 3))
+
+
+def test_amount_zero():
+    run_test(TestCase([1], 0, 0))
+
+
+def test_tricky():
+    run_test(
         TestCase(
             [186, 419, 83, 408],
             6249,
             20,
-        ),
-        TestCase(
-            [2],
-            3,
-            0,
-        ),
-        TestCase([1], 0, 0),
-    ]
-
-    for test_case in test_cases:
-        res = s.coinChange(test_case.coins, test_case.amount)
-        assert res == test_case.output, f"Expected {test_case.output}, got {res}"
+        )
+    )
