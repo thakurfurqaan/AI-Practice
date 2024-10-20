@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from leetcode.merge_accounts.solution1 import Solution
+from leetcode.merge_accounts.solution2 import Solution
 
 
 @dataclass
@@ -13,8 +13,17 @@ s = Solution()
 
 
 def run_test(tc: TestCase):
-    res = s.accountsMerge(tc.accounts, tc.output)
-    assert res == tc.output, f"Expected {tc.output}, got {res}"
+    res = s.accountsMerge(tc.accounts)
+    assert len(res) == len(tc.output)
+
+    for account in tc.output:
+        found = False
+        for acc in res:
+            if account == acc:
+                found = True
+                break
+        if not found:
+            assert found, "Didn't find " + str(account)
 
 
 def test_normal():
