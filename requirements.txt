@@ -2,3 +2,4 @@ pydantic==2.9.2
 instructor==1.5.1
 boto3
 openai
+pytest
