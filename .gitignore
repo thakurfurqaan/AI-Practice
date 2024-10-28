@@ -138,7 +138,7 @@ data/
 # Custom
 package
 aws_lambda/deployment_package.zip
-
+*.zip
 
 
 # Local .terraform directories
