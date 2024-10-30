@@ -6,4 +6,4 @@ pytest
 langchain
 langchain-openai
 pandas
-
+Pillow
