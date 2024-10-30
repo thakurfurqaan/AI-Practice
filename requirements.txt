@@ -5,3 +5,5 @@ openai
 pytest
 langchain
 langchain-openai
+pandas
+
