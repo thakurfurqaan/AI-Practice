@@ -1,0 +1,5 @@
+{
+    "database": "mysql",
+    "timeout": 30,
+    "retry_attempts": 3
+}
