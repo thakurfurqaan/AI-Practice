@@ -16,6 +16,11 @@ A comprehensive guide to set up Vaultwarden (Bitwarden RS) on a Debian-based sys
 - SSL is terminated at the Nginx level.
 - Domain is configured in the Nginx setup which is used to access Vaultwarden.
 
+## Backups
+- Backups are stored in `/opt/vaultwarden/backups`.
+- Backups are compressed using `tar.gz`.
+- Backups are automatically cleaned up after 7 days.
+
 ## Directory Structure
 ```
 /opt/vaultwarden/
