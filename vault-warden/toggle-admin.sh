@@ -15,7 +15,7 @@ disable_admin() {
     fi
     
     # Update config.json
-    jq '.disable_admin_token = true | del(.admin_token)' "$CONFIG_JSON" > "$CONFIG_JSON.tmp"
+    jq 'del(.admin_token)' "$CONFIG_JSON" > "$CONFIG_JSON.tmp"
     mv "$CONFIG_JSON.tmp" "$CONFIG_JSON"
     
     echo "Admin portal disabled in config.json"
@@ -50,7 +50,7 @@ case "$1" in
         enable_admin
         ;;
     "status")
-        if jq -e '.disable_admin_token == true' "$CONFIG_JSON" &>/dev/null; then
+        if jq -e '.admin_token' "$CONFIG_JSON" &>/dev/null; then
             echo "Admin portal is currently DISABLED"
         else
             echo "Admin portal is currently ENABLED"
