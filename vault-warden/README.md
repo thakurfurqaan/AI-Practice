@@ -8,6 +8,14 @@ A comprehensive guide to set up Vaultwarden (Bitwarden RS) on a Debian-based sys
 - Root/sudo access
 - GCP Instance (or any cloud provider)
 
+## Overview
+- Vaultwarden is a bitwarden server implementation written in Rust.
+- This setup includes a backup script and a restore script.
+- The admin token can be toggled on and off.
+- Nginx is used as a reverse proxy.
+- SSL is terminated at the Nginx level.
+- Domain is configured in the Nginx setup which is used to access Vaultwarden.
+
 ## Directory Structure
 ```
 /opt/vaultwarden/
@@ -16,7 +24,9 @@ A comprehensive guide to set up Vaultwarden (Bitwarden RS) on a Debian-based sys
 ├── data/
 ├── config/
 │   └── .env
-└── backups/
+├── backups/
+├── restore.sh
+└── toggle-admin.sh
 ```
 
 ## Step-by-Step Installation
@@ -57,22 +67,7 @@ cd /opt/vaultwarden
 ```
 
 ### 4. Docker Compose Configuration
-Create `docker-compose.yml`:
-```yaml
-version: '3'
-services:
-  vaultwarden:
-    image: vaultwarden/server:latest
-    container_name: vaultwarden
-    restart: always
-    env_file:
-      - config/.env
-    volumes:
-      - ./data:/data
-      - ./config:/config
-    ports:
-      - "8080:80"
-```
+Create `docker-compose.yml` 
 
 ### 5. Environment Configuration
 Create `config/.env`:

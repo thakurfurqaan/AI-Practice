@@ -1,0 +1,18 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: always
+    env_file:
+      - config/.env
+    volumes:
+      - ./data:/data
+      - ./config:/config
+    ports:
+      - "8080:80"
+    networks:
+      - vaultwarden-network
+
+networks:
+  vaultwarden-network:
+    driver: bridge
