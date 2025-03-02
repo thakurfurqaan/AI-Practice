@@ -2,6 +2,8 @@
 
 A comprehensive guide to set up Vaultwarden (Bitwarden RS) on a Debian-based system.
 
+- Note: Vault Warden files are stored under `/opt/vaultwarden` directory.
+
 ## Prerequisites
 - Debian-based system (Ubuntu/Debian)
 - Domain name
